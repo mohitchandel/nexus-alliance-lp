@@ -52,8 +52,8 @@ export const Layout38Defaults: Layout38Props = {
   heading: "Discover Our Services Today",
   description: "Find out how our collaborative approach can benefit your business.",
   buttons: [
-    { title: "Get Started", variant: "primary" }, // Use valid variant
-    { title: "Learn More", variant: "secondary-alt" } // Use valid variant
+    { title: "Get Started", variant: "primary" }, 
+    { title: "Learn More", variant: "secondary-alt" } 
   ],
   image: {
     src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",

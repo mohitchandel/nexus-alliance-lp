@@ -8,8 +8,8 @@ type ImageProps = {
 };
 
 type StatsProps = {
-  title: string;       // Heading or key figure
-  description: string; // Description for the heading
+  title: string;       
+  description: string;
 };
 
 type Props = {
@@ -69,12 +69,12 @@ export const Layout4Defaults: Layout4Props = {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
   stats: [
     {
-      title: "Heading ",  // First heading
+      title: "Heading ",  
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
     },
     {
-      title: "Heading ",  // Second heading
+      title: "Heading ",  
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
     },

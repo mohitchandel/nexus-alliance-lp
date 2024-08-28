@@ -1,92 +1,130 @@
-import { Button } from "@relume_io/relume-ui";
+import {
+  Button,
+  Accordion,
+  AccordionTrigger,
+  AccordionContent,
+  AccordionItem,
+} from "@relume_io/relume-ui";
+
 import type { ButtonProps } from "@relume_io/relume-ui";
-import { RxChevronRight } from "react-icons/rx";
+import { RxPlus } from "react-icons/rx";
 
-type ImageProps = {
-  src: string;
-  alt?: string;
-};
-
-type SectionProps = {
-  icon: ImageProps;
-  heading: string;
-  description: string;
-  buttons: ButtonProps[];
+type QuestionsProps = {
+  title: string;
+  answer: string;
 };
 
 type Props = {
-  sections: SectionProps[];
+  heading: string;
+  description: string;
+  questions: QuestionsProps[];
 };
 
-export type Layout233Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
+export type Faq4Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
 
-export const Services = (props: Layout233Props) => {
-  const { sections } = { ...props, ...Layout233Defaults } as Props;
+export const Services = (props: Faq4Props) => {
+  const { heading, description, questions } = {
+    ...Faq4Defaults,
+    ...props,
+  } as Props;
+
   return (
-    <section className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container grid grid-cols-1 items-start gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12">
-        {sections.map((section, index) => (
-          <div key={index}>
-            <div className="mb-5 md:mb-6">
-              <img src={section.icon.src} className="size-12" alt={section.icon.alt} />
-            </div>
-            <h3 className="mb-5 text-2xl font-bold md:mb-6 md:text-3xl md:leading-[1.3] lg:text-4xl">
-              {section.heading}
-            </h3>
-            <p>{section.description}</p>
-            <div className="mt-6 flex items-center gap-4 md:mt-8">
-              {section.buttons.map((button, index) => (
-                <Button key={index} {...button}>
-                  {button.title}
-                </Button>
-              ))}
-            </div>
-          </div>
-        ))}
+    <section className="px-4 py-8 md:px-6 md:py-12 lg:px-8 lg:py-16">
+      <div className="container mx-auto max-w-4xl">
+        <div className="mb-8 text-center md:mb-12 lg:mb-16">
+          <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl">{heading}</h2>
+          <p className="mt-4 text-base md:text-lg lg:text-xl">{description}</p>
+        </div>
+        <Accordion type="multiple" className="space-y-4">
+          {questions.map((question, index) => (
+            <AccordionItem
+              key={index}
+              value={`item-${index}`}
+              className="border border-gray-300 rounded-lg shadow-sm"
+            >
+              <AccordionTrigger
+                icon={
+                  <RxPlus className="text-gray-600 transition-transform duration-300 transform md:text-xl" />
+                }
+                className="flex items-center justify-between p-4 md:p-5 text-lg font-semibold text-gray-800 [&[data-state=open]>svg]:rotate-45"
+              >
+                {question.title}
+              </AccordionTrigger>
+              <AccordionContent className="p-4 md:p-5 text-base text-gray-700">
+                {question.answer}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
     </section>
   );
 };
 
-export const Layout233Defaults: Layout233Props = {
-  sections: [
+export const Faq4Defaults: Faq4Props = {
+  heading: "Alliance Services Overview",
+  description:
+    "Comprehensive SDLC & DevSecOps Consulting Deliver secure, efficient, and compliant software solutions with end-to-end SDLC guidance and integrated DevSecOps practices, ensuring every project phase from concept to deployment meets the highest standards.",
+  questions: [
     {
-      icon: {
-        src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-        alt: "Relume logo 1",
-      },
-      heading: "Medium length section heading goes here",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
-      buttons: [
-        { title: "Button", variant: "secondary" },
-        {
-          title: "Button",
-          variant: "link",
-          size: "link",
-          iconRight: <RxChevronRight />,
-        },
-      ],
+      title: "Advanced Blockchain Solutions & Deployment",
+      answer:
+        "Architect and implement robust blockchain systems tailored to business needs, including Hyperledger Fabric and other decentralized technologies for secure, scalable, and transparent operations.",
     },
     {
-      icon: {
-        src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-        alt: "Relume logo 2",
-      },
-      heading: "Medium length section heading goes here",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
-      buttons: [], // Removed buttons from the second section
+      title: "Smart Contract Development, Auditing & Compliance",
+      answer:
+        "Design, audit, and deploy smart contracts that automate and secure business processes. Our team ensures compliance and security, reducing risks in financial, legal, and operational functions.",
     },
     {
-      icon: {
-        src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-        alt: "Relume logo 3",
-      },
-      heading: "Medium length section heading goes here",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
-      buttons: [], // Removed buttons from the third section
+      title: "Cutting-Edge Platform Engineering & Cloud Integration",
+      answer:
+        "Leverage our expertise in building scalable, cloud-native platforms with modern technologies. We offer services from microservices architecture to Infrastructure as Code (IaC), ensuring resilient and adaptable infrastructure.",
+    },
+    {
+      title: "AI & Machine Learning Integration",
+      answer:
+        "Incorporate AI and machine learning into your business processes. We provide custom AI solutions, from data analysis to predictive modeling, empowering data-driven decision-making and innovation.",
+    },
+    {
+      title: "Cybersecurity & Compliance Services",
+      answer:
+        "Protect your digital assets with our comprehensive cybersecurity services, including threat detection, endpoint protection, and regulatory compliance. We ensure your operations remain secure and compliant with industry standards.",
+    },
+    {
+      title: "Enterprise IT & Cloud Migration",
+      answer:
+        "Seamlessly transition your business to the cloud with our enterprise IT solutions. We manage everything from cloud strategy and migration to optimization and ongoing management, ensuring minimal disruption and maximum efficiency.",
+    },
+    {
+      title: "Decentralized Application (DApp) Development",
+      answer:
+        "Create innovative decentralized applications (DApps) that operate on blockchain technology. We provide end-to-end development services, from conceptualization to deployment, ensuring secure and scalable solutions.",
+    },
+    {
+      title: "Data Analytics & Business Intelligence",
+      answer:
+        "Unlock insights with our data analytics and business intelligence services. We help organizations harness the power of data, delivering actionable insights and strategic recommendations to drive business growth.",
+    },
+    {
+      title: "Collaboration & Community-Driven Innovation",
+      answer:
+        "Join a vibrant community of innovators and businesses working together to drive industry advancements. Our alliance fosters collaboration, knowledge-sharing, and joint ventures, ensuring collective growth and success.",
+    },
+    {
+      title: "Managed IT Services & Support",
+      answer:
+        "Ensure operational continuity with our managed IT services. We offer 24/7 support, system monitoring, and proactive maintenance to keep your IT infrastructure running smoothly and securely.",
+    },
+    {
+      title: "IoT & Edge Computing Solutions",
+      answer:
+        "Integrate IoT and edge computing technologies into your business operations. Our services range from IoT device management to edge computing solutions, providing real-time data processing and analysis for smarter decision-making.",
+    },
+    {
+      title: "Regulatory Compliance & Risk Management",
+      answer:
+        "Navigate complex regulatory landscapes with our compliance and risk management services. We ensure your business adheres to all relevant regulations, minimizing risks and protecting your reputation.",
     },
   ],
 };

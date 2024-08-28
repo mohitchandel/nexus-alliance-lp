@@ -209,10 +209,10 @@ export const NavbarDefaults: NavbarProps = {
     { title: "About", url: "/about" },
     { title: "Services", url: "/services" },
     { title: "Contact Us", url: "/contact" },
-    
+
   ],
   buttons: [
-    
+
     {
       title: "Button",
       size: "sm",

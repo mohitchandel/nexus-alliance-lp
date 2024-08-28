@@ -7,7 +7,7 @@ type ImageProps = {
 };
 
 type Props = {
-  tagline: string;    // Add tagline here
+  tagline: string;    
   heading: string;
   description: string;
   buttons: ButtonProps[];
@@ -21,7 +21,7 @@ export const CallToAction = (props: Header19Props) => {
     ...Header19Defaults,
     ...props,
   } as Props;
-  
+
   return (
     <section className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
@@ -48,7 +48,7 @@ export const CallToAction = (props: Header19Props) => {
 };
 
 export const Header19Defaults: Header19Props = {
-  tagline: "Your Tagline Here", // Add default tagline
+  tagline: "Your Tagline Here", 
   heading: "Medium length hero heading goes here",
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",

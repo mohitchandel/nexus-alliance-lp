@@ -8,15 +8,15 @@ type ImageProps = {
 };
 
 type StatsProps = {
-  title: string;       // Percentage or key figure
-  description: string; // Description for the percentage
+  title: string;       
+  description: string; 
 };
 
 type Props = {
   tagline: string;
   heading: string;
   description: string;
-  stats: StatsProps[];  // Changed from subHeadings to stats
+  stats: StatsProps[];  
   buttons: ButtonProps[];
   image: ImageProps;
 };
@@ -69,12 +69,12 @@ export const Layout4Defaults: Layout4Props = {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
   stats: [
     {
-      title: "50%",  // Percentage or key figure
+      title: "50%",  
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
     },
     {
-      title: "50%",  // Percentage or key figure
+      title: "50%",  
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
     },

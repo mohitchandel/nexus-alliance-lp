@@ -1,5 +1,3 @@
-import Image from "next/image";
-import { Navbar } from "../components/common/Navbar";
 import { Header } from "../components/ui/home/Headers";
 import { CallToAction } from "@/components/ui/home/CallToAction";
 import { Showcase } from "@/components/ui/home/Showcase";
