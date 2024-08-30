@@ -214,7 +214,7 @@ export const NavbarDefaults: NavbarProps = {
   buttons: [
 
     {
-      title: "Button",
+      title: "Book A Meeting",
       size: "sm",
     },
   ],
