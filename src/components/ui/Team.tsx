@@ -37,11 +37,13 @@ export const Team = (props: Team2Props) => {
     <section className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
         <div className="mx-auto mb-12 max-w-lg text-start md:ml-[-8px] md:mb-18 lg:mb-20">
-          <p className="mb-3 font-semibold md:mb-4 ">{tagline}</p>
-          <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{heading}</h2>
-          <p className="md:text-md  ">{description}</p>
+          <p className="mb-3 font-semibold md:mb-4 text-start">{tagline}</p>
+          <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl text-start">
+            {heading}
+          </h2>
+          <p className="md:text-md text-start">{description}</p>
         </div>
-        <div className="grid grid-cols-1 items-start  justify-center gap-x-8 gap-y-12 md:grid-cols-2 md:gap-y-16 lg:grid-cols-4 ">
+        <div className="grid grid-cols-1 items-start justify-center gap-x-8 gap-y-12 md:grid-cols-2 md:gap-y-16 lg:grid-cols-4">
           {teamMembers.map((member, index) => (
             <TeamMember key={index} member={member} />
           ))}
@@ -53,7 +55,7 @@ export const Team = (props: Team2Props) => {
 
 const TeamMember = ({ member }: { member: TeamMember }) => {
   return (
-    <div className="flex flex-col items-stretch text-center">
+    <div className="flex flex-col items-stretch text-start">
       <div className="relative mb-5 size-full overflow-hidden pt-[66%] md:mb-6 md:pt-[100%]">
         <img
           src={member.image.src}
@@ -62,10 +64,12 @@ const TeamMember = ({ member }: { member: TeamMember }) => {
         />
       </div>
       <div className="mb-3 md:mb-4 self-start">
-        <h5 className="inline-block text-md font-semibold md:text-lg ">{member.name}</h5>
-        <h6 className=" md:text-md  self-start md:ml-[-30px] ">{member.jobTitle}</h6>
+        <h5 className="inline-block text-md font-semibold md:text-lg text-start">
+          {member.name}
+        </h5>
+        <h6 className="md:text-md self-start text-start">{member.jobTitle}</h6>
       </div>
-      <p className=" md:text-xsm  self-start md:ml-[-9px]">{member.description}</p>
+      <p className="md:text-xsm self-start text-start">{member.description}</p>
       <div className="mt-6 grid grid-flow-col grid-cols-[max-content] gap-3.5 self-start">
         {member.socialLinks.map((link, index) => (
           <a key={index} href={link.href}>
